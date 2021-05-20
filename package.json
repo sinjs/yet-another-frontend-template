@@ -20,7 +20,7 @@
     "build-less": "lessc ./styles/index.less ./bundle.css",
     "postcss": "postcss ./bundle.css -o ./bundle.css --use autoprefixer",
     "minify-js": "minify ./bundle.js --out-file ./bundle.js",
-    "minify-css": "cleancss --skip-aggressive-merging --skip-restructuring ./bundle.css -o ./bundle.css"
+    "minify-css": "cleancss ./bundle.css -o ./bundle.css"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
@@ -38,6 +38,7 @@
     "browserify": "^17.0.0",
     "chokidar-cli": "^2.1.0",
     "clean-css": "^5.1.2",
+    "clean-css-cli": "^5.3.0",
     "concurrently": "^6.1.0",
     "envify": "^4.1.0",
     "http-server": "^0.12.3",
