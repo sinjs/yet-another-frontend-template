@@ -1,9 +1,12 @@
 {
-  "name": "frontend-template",
+  "name": "yet-another-frontend-template",
   "version": "1.0.0",
-  "private": true,
-  "description": "Example of Browserify and other frontend tools",
-  "author": "Kimmo Brunfeldt",
+  "description": "Get started fast with frontend development.",
+  "author": "sinmineryt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sinmineryt/yet-another-frontend-template.git"
+  },
   "license": "MIT",
   "scripts": {
     "start": "concurrently -p \"[{name}]\" -n \"HTTP,JS,LESS\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"npm run http-server\" \"npm run watch-js\" \"npm run watch-styles\"",
