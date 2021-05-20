@@ -1,7 +1,7 @@
-# Don't Copy Paste This Frontend Template
+# Yet another frontend template
 
-I use this project template in almost all of my static site projects, which
-need the basic set of frontend tools.
+This is a template for getting started with frontend development.
 
-Project documentation here:
-https://kimmobrunfeldt.github.io/dont-copy-paste-this-frontend-template/
+It's a clone of [kimmobrunfeldt/dont-copy-paste-this-frontend-template](https://github.com/kimmobrunfeldt/dont-copy-paste-this-frontend-template), the original project is not getting any maintenance since 2016.
+
+**Note: still in development**
