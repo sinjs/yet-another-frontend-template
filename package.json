@@ -11,14 +11,14 @@
   "scripts": {
     "start": "concurrently -p \"[{name}]\" -n \"HTTP,JS,LESS\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"npm run http-server\" \"npm run watch-js\" \"npm run watch-styles\"",
     "http-server": "http-server -c0 .",
-    "watch-js": "API_URL=http://localhost:9001 watchify ./scripts/index.js -t [ babelify --presets [ es2015 ] ] -t envify --debug --verbose -o ./bundle.js",
+    "watch-js": "API_URL=http://localhost:9001 watchify ./scripts/index.js -t [ babelify --presets [ @babel/preset-env ] ] -t envify --debug --verbose -o ./bundle.js",
     "watch-styles": "npm run build-styles-dev && chokidar \"**/*.less\" \"./styles/**/*.css\" -c \"npm run build-styles-dev\"",
     "build": "npm run build-js && npm run build-styles",
-    "build-js": "NODE_ENV=production browserify ./scripts/index.js -t [ babelify --presets [ es2015 ] ] -t envify -o ./bundle.js && npm run minify-js",
+    "build-js": "NODE_ENV=production browserify ./scripts/index.js -t [ babelify --presets [ @babel/preset-env ] ] -t envify -o ./bundle.js && npm run minify-js",
     "build-styles": "npm run build-less && npm run postcss && npm run minify-css",
     "build-styles-dev": "npm run build-less && npm run postcss && echo \"Styles built!\"",
     "build-less": "lessc ./styles/index.less ./bundle.css",
-    "postcss": "postcss --use autoprefixer ./bundle.css -o ./bundle.css",
+    "postcss": "postcss ./bundle.css -o ./bundle.css --use autoprefixer",
     "minify-js": "uglifyjs ./bundle.js -o ./bundle.js",
     "minify-css": "cleancss --skip-aggressive-merging --skip-restructuring ./bundle.css -o ./bundle.css"
   },
@@ -29,6 +29,8 @@
     "progressbar.js": "^1.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
     "autoprefixer": "^10.2.5",
     "babel-preset-es2015": "^6.14.0",
     "babelify": "^10.0.0",
@@ -39,6 +41,7 @@
     "envify": "^4.1.0",
     "http-server": "^0.12.3",
     "less": "^4.1.1",
+    "postcss": "^8.2.15",
     "postcss-cli": "^8.3.1",
     "uglifyjs": "^2.4.10",
     "watchify": "^4.0.0"
